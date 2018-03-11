@@ -156,7 +156,6 @@ def fibonacci(num):
             count += 1
         return fibList
 
-
 if __name__ == '__main__':
     import doctest
     doctest.testmod()
