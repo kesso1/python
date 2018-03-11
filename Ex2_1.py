@@ -155,7 +155,7 @@ def fibonacci(num):
             n2 = nth
             count += 1
         return fibList
-
+        
 if __name__ == '__main__':
     import doctest
     doctest.testmod()
