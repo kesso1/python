@@ -1,0 +1,15 @@
+GET https://github.com/kesso1/TaskList
+
+//curl -u "kesso1" https://github.com/kesso1/APISecurity/blob/master/README.md
+
+//GET https://api.github.com/user
+
+//GET https://api.github.com/users/kesso1
+
+//GET https://api.github.com/user
+
+//curl -u "kesso1:3a3059f853f1fd49771fbf1b7a7d9ecc32514005" https://api.github.com/repos/kesso1/APISecurity/readme
+
+//curl -u "kesso1:3a3059f853f1fd49771fbf1b7a7d9ecc32514005" https://api.github.com/user/emails
+
+curl -u "kesso1:3a3059f853f1fd49771fbf1b7a7d9ecc32514005" https://api.github.com/user/emails
