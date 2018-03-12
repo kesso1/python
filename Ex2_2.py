@@ -102,42 +102,65 @@ f) Implement a function that returns the name of the keyword
 def set_destination(*args, **kwargs):
     """Function takes a variable number of positional and keyword
        arguments and prints the destination coordinates."""
-    # YOUR CODE HERE
-    pass
-
+    if args: 
+        print(f'Going to x={args[0]}, y={args[1]}, z={args[2]}')
+    if kwargs:
+        tmp = ", ".join("=".join((k,str(v))) for k,v in sorted(kwargs.items()))
+        print(f'Going to {tmp}')
 
 def product(*args, **kwargs):
     """Function that returns the product of all arguments, both,
        for positional and keyword arguments."""
-    # YOUR CODE HERE
-    return 0
+    prod = 1
+    for x in args:
+        prod *= x
+    for k,v in kwargs.items():
+        prod *= v
+    return prod
 
 
 def total(*args, **kwargs):
     """Function that returns the total sum of all arguments, both,
        for positional and keyword arguments."""
-    # YOUR CODE HERE
-    return 0
+    sum = 0
+    for x in args:
+        sum += x
+    for k,v in kwargs.items():
+        sum += v
+    return sum
 
 
 def max_even(*args, **kwargs):
     """Function that returns the largest even number
        of all arguments, both, for positional and keyword arguments."""
-    # YOUR CODE HERE
-    return 0
+    maxNum = 0
+    for x in args:
+        if x > maxNum and x % 2 == 0:
+            maxNum = x
+    return maxNum
 
 
 def val_for_longest_key(**kwargs):
     """Function that returns the value of the keyword argument with the
        longest name."""
-    # YOUR CODE HERE
-    return 0
+    maxLen = 0
+    maxValue = 0
+    for k,v in kwargs.items():
+        if len(k) > maxLen:
+            maxLen = len(k)
+            maxValue = v
+    return maxValue
 
 
 def key_for_biggest_value(**kwargs):
     # YOUR CODE HERE
-    return 0
-
+    maxKey = 0
+    maxValue = 0
+    for k,v in kwargs.items():
+        if v > maxValue:
+            maxValue = v
+            maxKey = k
+    return maxKey
 
 if __name__ == '__main__':
     import doctest
