@@ -96,9 +96,6 @@ f) Implement a function that returns the name of the keyword
 
 """
 
-# Write your code here:
-
-
 def set_destination(*args, **kwargs):
     """Function takes a variable number of positional and keyword
        arguments and prints the destination coordinates."""
