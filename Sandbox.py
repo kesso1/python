@@ -67,3 +67,12 @@ def val_for_longest_key(**kwargs):
     return maxValue
 
 val_for_longest_key(foo=10, alpha=3, x=9)
+
+
+motor_action_transitions = {
+'closed': lambda input: MotorAction.UP if input.open_button else MotorAction.OFF,
+'open': lambda input: MotorAction.UP if input.open_button else MotorAction.OFF,
+'opening': lambda input: MotorAction.UP if input.open_button else MotorAction.OFF,
+'closing': lambda input: MotorAction.UP if input.open_button else MotorAction.OFF,
+'error': lambda input: MotorAction.UP if input.open_button else MotorAction.OFF,
+}
