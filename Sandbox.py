@@ -53,26 +53,25 @@
 # print(result)
 
 
-def val_for_longest_key(**kwargs):
-    """Function that returns the value of the keyword argument with the
-       longest name."""
-    # YOUR CODE HERE
-    maxLen = 0
-    maxValue = 0
-    for k,v in kwargs.items():
-        print(len(k))
-        if len(k) > maxLen:
-            maxLen = len(k)
-            maxValue = v
-    return maxValue
+# def val_for_longest_key(**kwargs):
+#     """Function that returns the value of the keyword argument with the
+#        longest name."""
+#     # YOUR CODE HERE
+#     maxLen = 0
+#     maxValue = 0
+#     for k,v in kwargs.items():
+#         print(len(k))
+#         if len(k) > maxLen:
+#             maxLen = len(k)
+#             maxValue = v
+#     return maxValue
 
-val_for_longest_key(foo=10, alpha=3, x=9)
+# val_for_longest_key(foo=10, alpha=3, x=9)
 
 
-motor_action_transitions = {
-'closed': lambda input: MotorAction.UP if input.open_button else MotorAction.OFF,
-'open': lambda input: MotorAction.UP if input.open_button else MotorAction.OFF,
-'opening': lambda input: MotorAction.UP if input.open_button else MotorAction.OFF,
-'closing': lambda input: MotorAction.UP if input.open_button else MotorAction.OFF,
-'error': lambda input: MotorAction.UP if input.open_button else MotorAction.OFF,
-}
+import random
+num_digits = 5
+random_digits = map(lambda _: random.randint(0, 9), range(num_digits))
+
+digit_names = {0: 'zero', 1: 'one', 2: 'two', 3: 'three', 4: 'four',
+5: 'five', 6: 'six', 7: 'seven', 8: 'eight', 9: 'nine'}
