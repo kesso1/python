@@ -61,8 +61,39 @@ def list_min_max_avg_sales(sales_records_iter):
         min_max_sum_count[0]/min_max_sum_count[3]))
 
 
+def agg_func(partial_agg, record):
+    """Helper function to compute the partial aggregate for the group-by query.
+       Since multiline lambdas are not supported in Python, we use a normal function."""
+    department, amount = record
+    partial_agg[department] = partial_agg.get(department, 0) + amount
+    return partial_agg
+
+
+def list_sales_per_department(sales_record_iter):
+    """Group-by query for sales per department."""
+    dep_amounts = map(lambda record: (record.department, record.amount),
+                      sales_record_iter)
+    dep_sum = reduce(agg_func, dep_amounts, {})
+    print('sales per department:')
+    for dep, sales in dep_sum.items():
+        print('{:>12} {:.2f}'.format(dep, sales))
+
+
+def list_sales_per_department_sorted_descending_sales(sales_record_iter):
+    """Fancy version of Group-by query for sales per department orders results
+       by sales in descending order."""
+    dep_amounts = map(lambda record: (record.department, record.amount), sales_record_iter)
+    dep_sum = reduce(agg_func, dep_amounts, {})
+    sorted_dep_sum = sorted(dep_sum.items(), key=lambda t: t[1], reverse=True)
+    print('sales per department, sorted descending:')
+    for dep, sales in sorted_dep_sum:
+        print('{:>12} {:.2f}'.format(dep, sales))
+
+
 if __name__ == '__main__':
     FILE_NAME = 'mocksales.csv'
     process_sales_query(FILE_NAME, list_purchases_of_customer, 23)
     process_sales_query(FILE_NAME, list_total_sales)
     process_sales_query(FILE_NAME, list_min_max_avg_sales)
+    process_sales_query(FILE_NAME, list_sales_per_department)
+    process_sales_query(FILE_NAME, list_sales_per_department_sorted_descending_sales)
